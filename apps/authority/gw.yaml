@@ -13,6 +13,8 @@ spec:
         protocol: HTTP
       tls:
         httpsRedirect: true
+      hosts:
+        - "authority.cb-interview.com"
     - port:
         number: 443
         name: https
