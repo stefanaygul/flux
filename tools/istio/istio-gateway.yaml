@@ -13,9 +13,30 @@ spec:
         kind: HelmRepository
         name: istio-repo
         namespace: flux-system
+  interval: 10m0s
   values:
   dependsOn:
     - name: istio-base
       namespace: istio-system
     - name: istiod
       namespace: istio-system
+
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: istio-ingressgateway
+  namespace: istio-system
+spec:
+  selector:
+    istio: istio-ingress
+  servers:
+    - port:
+        number: 443
+        name: https
+        protocol: HTTPS
+      tls:
+        mode: SIMPLE
+        credentialName: istio-cb-interview-cert
+      hosts:
+        - "cb-interview.com"
