@@ -11,8 +11,8 @@ spec:
       version: 1.20.0
       sourceRef:
         kind: HelmRepository
-        name: istio-repo
-        namespace: flux-system
+        name: istio
+        namespace: istio-system
   interval: 10m0s
   values:
   dependsOn:
@@ -29,7 +29,7 @@ metadata:
   namespace: istio-ingress
 spec:
   selector:
-    app: istio-ingress # Matches your ingress service
+    app: istio-ingress
   servers:
     - port:
         number: 80
