@@ -3,25 +3,26 @@ kind: HelmRelease
 metadata:
   name: istio-ingress
   namespace: istio-ingress
-  labels:
-    app: istio-ingress
 spec:
-  releaseName: istio
-  chart:
-    spec:
-      chart: istio/gateway
-      version: 1.20.0
-      sourceRef:
-        kind: HelmRepository
-        name: istio
-        namespace: istio-system
-  interval: 10m0s
-  values:
+  interval: 5m
   dependsOn:
     - name: istio-base
       namespace: istio-system
     - name: istiod
       namespace: istio-system
+  chart:
+    spec:
+      chart: gateway
+      sourceRef:
+        kind: HelmRepository
+        name: istio
+        namespace: istio-system
+      interval: 1m
+    dependsOn:
+      - name: istio-base
+        namespace: istio-system
+      - name: istiod
+        namespace: istio-system
 
 ---
 apiVersion: networking.istio.io/v1alpha3
