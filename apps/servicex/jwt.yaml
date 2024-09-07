@@ -25,6 +25,6 @@ spec:
     - from:
         - source:
             requestPrincipals: ["testing@secure.istio.io"]
-  when:
-    - key: request.auth.claims[iss]
-      values: ["testing@secure.istio.io"]
+    - when:
+        - key: request.auth.claims[iss]
+          values: ["testing@secure.istio.io"]
