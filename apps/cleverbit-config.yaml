@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  Cleverbit__Enabled: "true"
+kind: ConfigMap
+metadata:
+  name: cleverbit-config
+  namespace: flux-system
