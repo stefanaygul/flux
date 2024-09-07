@@ -2,6 +2,8 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: istio-ingress
+  labels:
+    app: istio-ingress
   namespace: istio-ingress
 spec:
   selector:
@@ -48,5 +50,3 @@ spec:
         credentialName: cb-tls
       hosts:
         - "cb-interview.com"
-
-do you think here the selector not match with HelmRelease
