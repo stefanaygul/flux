@@ -13,6 +13,7 @@ spec:
         kind: HelmRepository
         name: istio-repo
         namespace: flux-system
+  values:
   dependsOn:
     - name: istio-base
       namespace: istio-system
