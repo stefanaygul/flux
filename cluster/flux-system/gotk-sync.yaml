@@ -7,10 +7,9 @@ spec:
   interval: 1m0s
   ref:
     branch: main
-  # REMOVE BELOVE LINES INCASE WHEN CANDIDATES WILL USE A PUBLIC REPO. OTHERWISE ENABLE BELOW LINES
-  # secretRef:
-  #   name: flux-system
-  url: ssh://git@github.com/stefanaygul/flux
+  secretRef:
+    name: flux-system
+  url: ssh://git@github.com/stefanaygul/flux.git
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
